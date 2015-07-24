@@ -42,6 +42,7 @@ Socialist exposes some events for you to hook into in your application. To regis
 * fires when a user logs in
 * exposes user data
 
+
     AndyJessop\Socialist\Events\UserHasRegistered
 
 * fires when a user is created
