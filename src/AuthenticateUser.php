@@ -2,9 +2,11 @@
 
 namespace AndyJessop\Socialist;
 
+use Event;
 use Illuminate\Contracts\Auth\Guard;
 use Laravel\Socialite\Contracts\Factory as Socialite;
 use AndyJessop\Socialist\Repositories\UserRepository;
+use AndyJessop\Socialist\Events\UserHasLoggedIn;
 use Illuminate\Http\Request;
 
 class AuthenticateUser {
@@ -27,6 +29,8 @@ class AuthenticateUser {
         $user = $this->users->findByEmailOrCreate($this->getUser($provider), $provider);
 
         $this->auth->login($user, true);
+
+        Event::fire(new UserHasLoggedIn($user));
 
         return $user;
     }
