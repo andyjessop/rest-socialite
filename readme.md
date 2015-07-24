@@ -37,12 +37,12 @@ Run the migration
 
 Socialist exposes some events for you to hook into in your application. To register listeners, follow the instructions in the [Laravel Docs](http://laravel.com/docs/5.1/events#defining-listeners).
 
-### AndyJessop\Socialist\Events\UserHasLoggedIn
+    AndyJessop\Socialist\Events\UserHasLoggedIn
 
 * fires when a user logs in
 * exposes user data
 
-### AndyJessop\Socialist\Events\UserHasRegistered
+    AndyJessop\Socialist\Events\UserHasRegistered
 
 * fires when a user is created
 * exposes user data
