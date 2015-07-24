@@ -5,7 +5,7 @@ namespace	AndyJessop\Socialist;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Routing\Router;
 
-class SocialistServiceprovider extends ServiceProvider{
+class SocialistServiceProvider extends ServiceProvider{
 
 	/**
 	 * Indicates if loading of the provider is deferred.
@@ -16,11 +16,16 @@ class SocialistServiceprovider extends ServiceProvider{
 
 	public function boot()
 	{
-		$this->loadViewsFrom(realpath(__DIR__.'/../resources/views'), 'socialist');
 		$this->setupRoutes($this->app->router);
+
+		// Publish config and migrations
 		$this->publishes([
-				__DIR__.'/config/socialist.php' => config_path('socialist.php'),
+				__DIR__.'/../config/socialist.php' => config_path('socialist.php'),
+				__DIR__.'/../migrations' => base_path('database/migrations')
 		]);
+
+		// Use this package's auth model, rather than the default User.php
+		$this->app->config->set('auth.model', $this->app->config->get('socialist.auth.model'));
 	}
 
 	/**

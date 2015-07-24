@@ -1,6 +1,8 @@
 <?php
 
 return [
-		
-	"test" => "test message"
+
+	'auth.model' 	=> 'AndyJessop\Socialist\Models\User.php',
+
+	'api_root'		=> 'api/v1/'
 ];

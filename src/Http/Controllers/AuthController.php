@@ -4,16 +4,14 @@ namespace AndyJessop\Socialist\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Config;
-use Laravel\Socialite\Facades\Socialite as Socialite;
+use Illuminate\Http\Request;
+use AndyJessop\Socialist\AuthenticateUser;
 
 class AuthController extends Controller {
 
-    public function login()
+    public function login($provider, AuthenticateUser $authenticateUser, Request $request)
     {
-        if (\Input::has('oauth_token'))
-        {
-
-        }
-        return Socialite::driver('twitter')->redirect();
+        $user = $authenticateUser->execute($request->has('code'), $provider);
+        // Fire event: user has logged in
     }
 }
