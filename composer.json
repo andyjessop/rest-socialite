@@ -1,0 +1,19 @@
+{
+    "name": "andyjessop/socialist",
+    "description": "A social authentication REST API for Laravel 5",
+    "license": "MIT",
+    "require": {
+        "laravel/socialite": "^2.0",
+        "illuminate/html": "~5.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "AndyJessop\\Socialist\\": "src/"
+        }
+    },
+    "config": {
+        "preferred-install": "dist"
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
